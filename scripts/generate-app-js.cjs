@@ -118,7 +118,7 @@ function card(p, index) {
         \${discountHtml}
         <div class="price-line"><strong>¥\${p.price}</strong><span> / 月起</span></div>
         <small class="billing-note">\${p.lineType} · \${p.protocol}</small>
-        <a class="button" href="\${p.url}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="访问 \${p.name} 官网">访问官网 <span>↗</span></a>
+        <a class="button" href="\${p.url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="访问 \${p.name} 官网">访问官网 <span>↗</span></a>
         <a class="review-link" href="review-\${p.id}.html">📖 查看深度测评报告 <span>→</span></a>
       </div>
     </div>
@@ -389,7 +389,7 @@ function generateReviewHtml(p) {
     <p>购买后在服务商用户中心一键复制“订阅链接”，导入客户端后即可同步全球节点列表。支持国内外智能分流规则，海外流量走专线代理，国内流量直连不减速。</p>
 
     <div style="margin-top:35px;display:flex;gap:15px;align-items:center;flex-wrap:wrap">
-      <a class="button button-primary" href="\${p.url}" target="_blank" rel="sponsored nofollow noopener noreferrer">访问 \${p.name} 官网（附专属优惠码） ↗</a>
+      <a class="button button-primary" href="\${p.url}" target="_blank" rel="nofollow sponsored noopener noreferrer">访问 \${p.name} 官网（附专属优惠码） ↗</a>
       <a class="text-link" href="methodology.html">阅读评测标准与方法论 →</a>
     </div>
   \`;

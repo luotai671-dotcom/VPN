@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const assert = require('assert');
 const vm = require('vm');
 
@@ -7,6 +8,7 @@ console.log('--- 开始深度测评与数据一致性检验 ---');
 // 1. 验证 src/data/services.json 和 data/services.json
 const srcServices = JSON.parse(fs.readFileSync('src/data/services.json', 'utf8'));
 const dataServices = JSON.parse(fs.readFileSync('data/services.json', 'utf8'));
+const redirects = JSON.parse(fs.readFileSync('data/redirects.json', 'utf8'));
 
 assert.equal(srcServices.length, 11, '应当刚好包含 11 款核心服务商');
 assert.equal(dataServices.length, 11, 'data/services.json 应当刚好包含 11 款核心服务商');
@@ -39,10 +41,12 @@ srcServices.forEach((s, idx) => {
   assert.ok(Array.isArray(s.pros) && s.pros.length > 0, `【${s.name}】缺少核心亮点 (pros)`);
   assert.ok(Array.isArray(s.cons) && s.cons.length > 0, `【${s.name}】缺少选购提示 (cons)`);
 
-  // 邀请码验证
+  // 302 隔离与邀请码映射验证
   const expectedCode = requiredAffiliates[s.id];
   assert.ok(expectedCode, `未知的服务商 id: ${s.id}`);
-  assert.ok(s.affiliateUrl.includes(`code=${expectedCode}`), `【${s.name}】推广链接中缺少指定邀请码 ${expectedCode}`);
+  assert.ok(redirects[s.id], `302 重定向映射中缺失服务商: ${s.id}`);
+  assert.ok(redirects[s.id].includes(`code=${expectedCode}`), `【${s.name}】302 映射目标中缺少指定邀请码 ${expectedCode}`);
+  assert.equal(s.affiliateUrl, `/go/${s.id}`, `【${s.name}】数据层链接必须统一为 302 内链 /go/${s.id}`);
 
   // 简介独立性与不冲突验证
   assert.ok(!overviews.has(s.overview), `【${s.name}】简介与其它品牌发生重复冲突！`);
@@ -157,8 +161,8 @@ srcServices.forEach(s => {
   const count = countChineseChars(content);
   assert.ok(count >= 1500, `【${s.name}】独立测评页面中文汉字数不足 1500，实测仅 ${count}`);
   
-  const expectedCode = requiredAffiliates[s.id];
-  assert.ok(content.includes(`code=${expectedCode}`), `【${s.name}】独立测评页面缺少邀请码参数 ${expectedCode}`);
+  assert.ok(content.includes(`/go/${s.id}`), `【${s.name}】独立测评页面缺少 302 安全内链 /go/${s.id}`);
+  assert.ok(content.includes('rel="nofollow sponsored noopener noreferrer"'), `【${s.name}】独立测评页面外链缺少合规 rel 属性`);
 });
 
 console.log('✓ 全部 11 款独立测评网站（共 22 个文件）字数与链接深度校验 100% 通过（均 >= 1500 汉字）');

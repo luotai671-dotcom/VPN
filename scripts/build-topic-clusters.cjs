@@ -546,7 +546,7 @@ const beginnerContent = `
       <strong>🚀 小白新手高性价比首选推荐：闪电鼠 (起步 8.00 元/月)</strong>
       <span>支持按月灵活订购，全节点部署新一代 VLESS 协议，Clash/小火箭扫码一键导入，新手友好度全网标杆，专属优惠码 sd88。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、什么是科学上网？VPN、机场与专线究竟有什么区别？</h2>
@@ -762,7 +762,7 @@ const devicesContent = `
       <strong>📱 全平台极简适配首选品牌：闪电鼠 (起步 8.00 元/月)</strong>
       <span>后台一键直导 Clash、Shadowrocket、Sing-box、v2rayN 全平台订阅，支持手机与电脑多设备同时并发在线，优惠码 sd88。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、各大操作系统主流客户端综合对比与梯队推荐</h2>

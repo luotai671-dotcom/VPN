@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>安全跳转中 — 翻墙怪 VPN Insight</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+  <style>
+    :root {
+      --navy: #0c2128;
+      --card-bg: rgba(17, 47, 57, 0.85);
+      --border: rgba(52, 211, 153, 0.25);
+      --mint: #34d399;
+      --mint-glow: rgba(52, 211, 153, 0.4);
+      --text: #e2edea;
+      --muted: #8fa8a2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 20%, #153c3e 0%, var(--navy) 65%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .redirect-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--mint-glow);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    .redirect-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+    }
+    .brand-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      position: relative;
+    }
+    .pulse-ring {
+      position: absolute;
+      inset: -6px;
+      border: 2px solid var(--mint);
+      border-radius: 50%;
+      animation: pulse 2s infinite ease-out;
+      opacity: 0.6;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.85); opacity: 0.8; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+    .brand-icon svg { width: 32px; height: 32px; }
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .target-name {
+      color: var(--mint);
+      font-weight: 700;
+    }
+    p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, #10b981, var(--mint));
+      border-radius: 2px;
+      animation: loading 1.2s infinite ease-in-out;
+    }
+    @keyframes loading {
+      0% { transform: translateX(-100%); width: 30%; }
+      50% { width: 60%; }
+      100% { transform: translateX(350%); width: 30%; }
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--mint);
+      color: #0b241c;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .action-btn:hover {
+      background: #6ee7b7;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(52, 211, 153, 0.35);
+    }
+    .footer-links {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--mint);
+    }
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #78a197;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-card">
+    <div class="brand-icon">
+      <div class="pulse-ring"></div>
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 17 L11 5 C9.5 3 12 1.5 14 3 L23.5 12 Z" fill="#34d399"/>
+        <path d="M45 17 L53 5 C54.5 3 52 1.5 50 3 L40.5 12 Z" fill="#34d399"/>
+        <path d="M14 16 C14 13.5 16 11.5 18.5 11.5 H45.5 C48 11.5 50 13.5 50 16 V35 C50 46.5 41 55.5 32 58.5 C23 55.5 14 46.5 14 35 Z" fill="#19593c" stroke="#34d399" stroke-width="2"/>
+        <polygon points="34.5,23 23,39 31.5,39 27,53.5 41.5,36 33.5,36" fill="#a7f3d0"/>
+      </svg>
+    </div>
+
+    <div class="security-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      302 专线安全链路已加密校验
+    </div>
+
+    <h1 id="redirect-heading">正在安全跳转至 <span class="target-name" id="target-label">官网</span>...</h1>
+    <p id="redirect-desc">通过翻墙怪官方安全跳转通道连接。如果您的浏览器未在 2 秒内自动跳转，请点击下方按钮直接访问：</p>
+
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <a id="target-btn" class="action-btn" href="/" rel="nofollow sponsored noopener noreferrer">立即直达官网 <span>↗</span></a>
+
+    <div class="footer-links">
+      <a href="/index.html">← 返回翻墙怪首页</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var redirects = {
+        "shandianshu": { name: "闪电鼠", url: "https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" },
+        "dalaoyun": { name: "大佬云", url: "https://chenpin01.dalaoyunaff.com/#/?code=GQ6CL6Km" },
+        "liulianyun": { name: "榴莲云", url: "https://chenpingan.liulianyunaff.com/#/?code=7pdjs9zt" },
+        "shenxing": { name: "神行加速", url: "https://chenpingan01.shenxingaff.com/#/?code=RZ48f9wP" },
+        "yunjiexian": { name: "云界线", url: "https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT" },
+        "huanqiuti": { name: "环球梯", url: "https://chenpingan01.huanqiutiaff.com/#/?code=FGCcYdFo" },
+        "jilianyun": { name: "极连云", url: "https://haozevpn.jlyvipaff.com/#/?code=6h2TMD5b" },
+        "guangshuyun": { name: "光速云", url: "https://hu8jnfv.gsyvipaff.com/#/?code=vELLETdq" },
+        "guangnianti": { name: "光年梯", url: "https://gnt001.gntvipaff.cc/#/?code=rN3ybxa7" },
+        "bianyuan": { name: "边缘节点", url: "https://wep.edgenovaaff.com/#/?code=papME7sh" },
+        "sujie": { name: "速界", url: "https://pygllc.speedworldaff.cc/#/?code=ll8LjYBJ" }
+      };
+
+      // 解析目标 key
+      var params = new URLSearchParams(window.location.search);
+      var key = params.get('id') || params.get('to') || params.get('target');
+      if (!key) {
+        var pathParts = window.location.pathname.split('/').filter(Boolean);
+        var last = pathParts[pathParts.length - 1];
+        if (last && last !== 'go.html' && last !== 'go') {
+          key = last.replace(/\.html$/, '');
+        }
+      }
+
+      var target = key ? redirects[key] : null;
+
+      if (target) {
+        document.title = "正在安全跳转至 " + target.name + " 官网 — 翻墙怪";
+        document.getElementById("target-label").textContent = "【" + target.name + "】官网";
+        var btn = document.getElementById("target-btn");
+        btn.href = target.url;
+        btn.textContent = "立即访问 " + target.name + " 官网 ↗";
+
+        // 动态注入 meta refresh 作为双重保险
+        var meta = document.createElement('meta');
+        meta.httpEquiv = "refresh";
+        meta.content = "0;url=" + target.url;
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        // 立即执行 JS 302 替换
+        try {
+          window.location.replace(target.url);
+        } catch(e) {
+          window.location.href = target.url;
+        }
+      } else {
+        document.getElementById("redirect-heading").textContent = "未指定目标或链接已过期";
+        document.getElementById("redirect-desc").textContent = "未找到对应的服务商跳转参数，3 秒后将自动为您返回首页...";
+        var btn = document.getElementById("target-btn");
+        btn.href = "/index.html";
+        btn.textContent = "返回翻墙怪首页 ↗";
+        setTimeout(function() {
+          window.location.replace("/index.html");
+        }, 2500);
+      }
+    })();
+  </script>
+</body>
+</html>

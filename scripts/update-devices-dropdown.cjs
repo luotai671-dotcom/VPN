@@ -465,7 +465,7 @@ const devicesFullContent = `  <a class="breadcrumb" href="index.html">← 返回
       <strong>📱 全平台极简适配首选品牌：闪电鼠 (起步 8.00 元/月)</strong>
       <span>后台一键直导 Clash、Shadowrocket、Sing-box、v2rayN 全平台订阅，支持手机与电脑多设备同时并发在线，专属优惠码 sd88。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、各大操作系统主流客户端综合对比与梯队速查表</h2>

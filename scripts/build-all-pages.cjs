@@ -301,7 +301,7 @@ const streamingCardsHtml = streamingTop3.map(p => `
         ${p.coupon ? `<button class="discount copyable" title="点击复制专属优惠码" onclick="copyCoupon('${p.coupon}', this)">优惠码: <b>${p.coupon}</b> <span class="copy-hint">复制</span></button>` : `<span class="discount">特惠直购 · 免券</span>`}
         <div class="price-line"><strong>¥${p.startingPrice.toFixed(2)}</strong><span> / 月起</span></div>
         <small class="billing-note">${p.lineType} · ${p.protocol}</small>
-        <a class="button" href="${p.affiliateUrl}" target="_blank" rel="sponsored nofollow noopener noreferrer">访问官网 <span>↗</span></a>
+        <a class="button" href="${p.affiliateUrl}" target="_blank" rel="nofollow sponsored noopener noreferrer">访问官网 <span>↗</span></a>
         <a class="review-link" href="review-${p.id}.html">📖 查看深度测评报告 <span>→</span></a>
       </div>
     </div>
@@ -593,7 +593,7 @@ const devicesContent = `
       <strong>📱 全平台极简适配首选品牌：闪电鼠 (起步 8.00 元/月)</strong>
       <span>后台一键直导 Clash、Shadowrocket、Sing-box、v2rayN 全平台订阅，支持手机与电脑多设备同时并发在线，专属优惠码 sd88。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、各大操作系统主流客户端综合对比与梯队速查表</h2>
@@ -884,7 +884,7 @@ const securityContent = `
       <strong>🛡️ 隐私与商业安全推荐：云界线 / 大佬云</strong>
       <span>商用级纯净出口 IP，告别 Google 频繁人机验证，全链路高强度 TLS/Reality 加密。</span>
     </div>
-    <a class="button button-primary" href="https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT" target="_blank" rel="sponsored nofollow noopener noreferrer">访问云界线官网（优惠码 yjx888） ↗</a>
+    <a class="button button-primary" href="/go/yunjiexian" target="_blank" rel="nofollow sponsored noopener noreferrer">访问云界线官网（优惠码 yjx888） ↗</a>
   </div>
 
   <h2>一、为什么优先选择 VLESS 协议？与传统协议的安全对比</h2>
@@ -1071,7 +1071,7 @@ const beginnerContent = `
       <strong>🚀 新手高性价比首选：闪电鼠 (起步 8元/月)</strong>
       <span>支持灵活月付，全节点部署 VLESS 协议，Clash/小火箭一键导入，新手友好度极佳。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、什么是专线服务？它和老旧的传统工具有什么区别？</h2>
@@ -1088,7 +1088,7 @@ const beginnerContent = `
   <div class="platform-grid">
     <div class="platform-card">
       <h3><span>1️⃣</span> 挑选适合你的套餐</h3>
-      <p>日常轻度查资料与社交推荐 8 元入门套餐（如 <a class="text-link" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank">闪电鼠</a>、<a class="text-link" href="https://chenpin01.dalaoyunaff.com/#/?code=GQ6CL6Km" target="_blank">大佬云</a>）；重度追剧推荐流媒体专精套餐；电竞联机推荐低延迟专线。</p>
+      <p>日常轻度查资料与社交推荐 8 元入门套餐（如 <a class="text-link" href="/go/shandianshu" target="_blank">闪电鼠</a>、<a class="text-link" href="/go/dalaoyun" target="_blank">大佬云</a>）；重度追剧推荐流媒体专精套餐；电竞联机推荐低延迟专线。</p>
     </div>
     <div class="platform-card">
       <h3><span>2️⃣</span> 复制订阅链接</h3>

@@ -1,0 +1,20 @@
+# ==============================================================================
+# Cloudflare Pages / Netlify 302 Redirect Rules for Affiliate Links
+# ==============================================================================
+
+# 11 款核心服务商独立 302 直连规则 (强制 302 临时重定向，避免搜索引擎收录中间链)
+/go/shandianshu   https://chenpin.shandianshuaff.com/#/?code=m28TvPVX   302!
+/go/dalaoyun      https://chenpin01.dalaoyunaff.com/#/?code=GQ6CL6Km    302!
+/go/liulianyun    https://chenpingan.liulianyunaff.com/#/?code=7pdjs9zt  302!
+/go/shenxing      https://chenpingan01.shenxingaff.com/#/?code=RZ48f9wP  302!
+/go/yunjiexian    https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT   302!
+/go/huanqiuti     https://chenpingan01.huanqiutiaff.com/#/?code=FGCcYdFo 302!
+/go/jilianyun     https://haozevpn.jlyvipaff.com/#/?code=6h2TMD5b        302!
+/go/guangshuyun   https://hu8jnfv.gsyvipaff.com/#/?code=vELLETdq         302!
+/go/guangnianti   https://gnt001.gntvipaff.cc/#/?code=rN3ybxa7          302!
+/go/bianyuan      https://wep.edgenovaaff.com/#/?code=papME7sh           302!
+/go/sujie         https://pygllc.speedworldaff.cc/#/?code=ll8LjYBJ       302!
+
+# 泛匹配与兜底：未匹配到的 /go/ 路径转发至 go.html 动态解析
+/go/:id           /go.html?id=:id                                        302
+/go/*             /go.html                                               302

@@ -51,7 +51,7 @@ const providers = [
       "privacy",
       "budget"
     ],
-    "url": "https://chenpin.shandianshuaff.com/#/?code=m28TvPVX",
+    "url": "/go/shandianshu",
     "pros": [
       "8 元/月起步超高性价比，支持灵活月付",
       "全节点部署 VLESS 协议，抗封锁与并发吞吐极佳",
@@ -97,7 +97,7 @@ const providers = [
       "streaming",
       "privacy"
     ],
-    "url": "https://chenpin01.dalaoyunaff.com/#/?code=GQ6CL6Km",
+    "url": "/go/dalaoyun",
     "pros": [
       "运营超 4 年老牌团队，抗风险能力强，跑路风险趋近于零",
       "线路 SLA 达到 99.99%，长期使用极度稳定省心",
@@ -142,7 +142,7 @@ const providers = [
       "streaming",
       "budget"
     ],
-    "url": "https://chenpingan.liulianyunaff.com/#/?code=7pdjs9zt",
+    "url": "/go/liulianyun",
     "pros": [
       "原生流媒体住宅 IP 解锁率行业顶尖，告别代理受阻报错",
       "流量配额充沛，大流量 4K 追剧性价比极其出色",
@@ -186,7 +186,7 @@ const providers = [
     "categories": [
       "gaming"
     ],
-    "url": "https://chenpingan01.shenxingaff.com/#/?code=RZ48f9wP",
+    "url": "/go/shenxing",
     "pros": [
       "专设游戏电竞低延迟通道，告别丢包与跳 Ping",
       "全天候 QOS 优先级带宽调度，晚高峰游戏联机稳如泰山",
@@ -231,7 +231,7 @@ const providers = [
       "gaming",
       "privacy"
     ],
-    "url": "https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT",
+    "url": "/go/yunjiexian",
     "pros": [
       "商用级纯净出口 IP，告别 Google 频繁人机验证困扰",
       "支持开发环境 SSH / 远程桌面长久保活连接",
@@ -275,7 +275,7 @@ const providers = [
     "categories": [
       "budget"
     ],
-    "url": "https://chenpingan01.huanqiutiaff.com/#/?code=FGCcYdFo",
+    "url": "/go/huanqiuti",
     "pros": [
       "双专线架构智能容灾，性价比在同价位中非常突出",
       "8 元低门槛月付体验，新手尝鲜毫无后顾之忧",
@@ -317,7 +317,7 @@ const providers = [
     "lineType": "IEPL",
     "protocol": "VLESS",
     "categories": [],
-    "url": "https://haozevpn.jlyvipaff.com/#/?code=6h2TMD5b",
+    "url": "/go/jilianyun",
     "pros": [
       "出口带宽储备极其雄厚，绝不人为压制用户网速",
       "允许多台设备并发连接，家庭与小团队极佳选择",
@@ -359,7 +359,7 @@ const providers = [
     "lineType": "IPLC 专线",
     "protocol": "VLESS",
     "categories": [],
-    "url": "https://hu8jnfv.gsyvipaff.com/#/?code=vELLETdq",
+    "url": "/go/guangshuyun",
     "pros": [
       "物理级点对点 IPLC 专线，敏感时期网络稳固不破防",
       "跳数少延迟极低，海外网页秒开与金融交易响应迅速",
@@ -401,7 +401,7 @@ const providers = [
     "lineType": "IEPL",
     "protocol": "VLESS",
     "categories": [],
-    "url": "https://gnt001.gntvipaff.cc/#/?code=rN3ybxa7",
+    "url": "/go/guangnianti",
     "pros": [
       "全网罕见的 7 元极低月付专线门槛，学生党极致福音",
       "后台配置极其简洁直观，小白用户 1 分钟上手配置",
@@ -443,7 +443,7 @@ const providers = [
     "lineType": "VLESS",
     "protocol": "VLESS",
     "categories": [],
-    "url": "https://wep.edgenovaaff.com/#/?code=papME7sh",
+    "url": "/go/bianyuan",
     "pros": [
       "Anycast 全球边缘分布式拓扑，网络自愈容灾能力极强",
       "节点覆盖 32+ 国家与稀缺区域，跨境出海业务利器",
@@ -485,7 +485,7 @@ const providers = [
     "lineType": "IPLC 专线",
     "protocol": "VLESS",
     "categories": [],
-    "url": "https://pygllc.speedworldaff.cc/#/?code=ll8LjYBJ",
+    "url": "/go/sujie",
     "pros": [
       "IPLC 专线加持自动化灾备热倒换，全天候业务连续性高",
       "兼顾 4K 影音吞吐与外服低延迟联机，表现均衡全面",
@@ -747,7 +747,7 @@ function card(p, index) {
         ${discountHtml}
         <div class="price-line"><strong>¥${p.price}</strong><span> / 月起</span></div>
         <small class="billing-note">${p.lineType} · ${p.protocol}</small>
-        <a class="button button-cta" href="${p.url}" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="访问 ${p.name} 官网领取优惠">直达官网领取优惠 <span>↗</span></a>
+        <a class="button button-cta" href="${p.url}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="访问 ${p.name} 官网领取优惠">直达官网领取优惠 <span>↗</span></a>
         <a class="review-link" href="review-${p.id}.html">📖 查看深度测评报告 <span>→</span></a>
       </div>
     </div>
@@ -1027,7 +1027,7 @@ function generateReviewHtml(p) {
     <p>购买后在服务商用户中心一键复制“订阅链接”，导入客户端后即可同步全球节点列表。支持国内外智能分流规则，海外流量走专线代理，国内流量直连不减速。</p>
 
     <div style="margin-top:35px;display:flex;gap:15px;align-items:center;flex-wrap:wrap">
-      <a class="button button-primary" href="${p.url}" target="_blank" rel="sponsored nofollow noopener noreferrer">访问 ${p.name} 官网（附专属优惠码） ↗</a>
+      <a class="button button-primary" href="${p.url}" target="_blank" rel="nofollow sponsored noopener noreferrer">访问 ${p.name} 官网（附专属优惠码） ↗</a>
       <a class="text-link" href="methodology.html">阅读评测标准与方法论 →</a>
     </div>
   `;

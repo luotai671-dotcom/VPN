@@ -348,7 +348,7 @@ ${buildHeader('vpn', '')}
               <button class="discount copyable" title="点击复制专属优惠码" onclick="copyCoupon('sd88', this)">优惠码: <b>sd88</b> <span class="copy-hint">复制</span></button>
             </div>
             <div class="pick-price">参考低至 <strong>¥8.00</strong><span> / 月</span></div>
-            <a class="button" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问官网 <span>↗</span></a>
+            <a class="button" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问官网 <span>↗</span></a>
             <span class="pick-note">起步 8元/月 · IEPL+内网专线 · VLESS</span>
             <a class="pick-review" href="review-shandianshu.html">📖 查看闪电鼠深度测评报告 <span>→</span></a>
           </div>
@@ -611,7 +611,7 @@ ${buildHeader('vpn', '')}
 
   <dialog id="search-dialog"><div class="dialog-top"><h2>探索评测与专线推荐</h2><button class="close-dialog" aria-label="关闭搜索">✕</button></div><label class="sr-only" for="search-input">搜索内容</label><input id="search-input" placeholder="搜索 闪电鼠、大佬云、IEPL、流媒体…" type="search"><div id="search-results" aria-live="polite"></div><p class="dialog-hint">按 Esc 关闭 · 输入关键词即时搜索</p></dialog>
   <dialog id="info-dialog"><div class="dialog-top"><h2>联盟合作与数据说明</h2><button class="close-dialog" aria-label="关闭说明">✕</button></div><p>部分外部链接可能包含联盟推广关系，通过这些链接购买可能为本站带来佣金，你无需支付额外费用。商业合作可能影响展示位置。</p><p>评分、测速、覆盖地区、节点数及折扣价格均为实测基准数据，建议在结算时输入专属优惠码享受立减特惠。</p><a class="text-link" href="disclosure.html">阅读完整披露 →</a></dialog>
-  <div class="mobile-recommendation" hidden><div><small>编辑之选 · 年度主推</small><strong>闪电鼠 <span>9.9/10 (8元/月)</span></strong></div><a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问官网 ↗</a></div>
+  <div class="mobile-recommendation" hidden><div><small>编辑之选 · 年度主推</small><strong>闪电鼠 <span>9.9/10 (8元/月)</span></strong></div><a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问官网 ↗</a></div>
   <script src="js/app.js"></script>
 </body>
 </html>`;

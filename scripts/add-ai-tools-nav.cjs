@@ -169,7 +169,7 @@ const aiPageBodyContent = `  <a class="breadcrumb" href="index.html">← 返回�
       <strong>⚡ AI 生产力专精原生高稳线路：闪电鼠 / 大佬云 (专属优惠码 sd88 / dly88)</strong>
       <span>全线标配原生美国家庭住宅 IP 与超低风控纯净广播出口，全面支持 ChatGPT Plus 免手机验证充值、Claude 网页端秒开与 Cursor API 直连。</span>
     </div>
-    <a class="button button-primary" href="https://chenpin.shandianshuaff.com/#/?code=m28TvPVX" target="_blank" rel="sponsored nofollow noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
+    <a class="button button-primary" href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer">访问闪电鼠官网（优惠码 sd88） ↗</a>
   </div>
 
   <h2>一、AI 访问核心痛点：什么是 ChatGPT 降智（De-ranking）与 IP 风控？</h2>

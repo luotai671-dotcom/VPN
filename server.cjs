@@ -16,9 +16,22 @@ const types = {
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8'
 };
+let redirects = {};
+try { redirects = JSON.parse(fs.readFileSync(path.join(root, 'data/redirects.json'), 'utf8')); } catch {}
+
 http.createServer((req, res) => {
   let pathname;
   try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); } catch { res.writeHead(400); return res.end('Bad request'); }
+  if (pathname.startsWith('/go/')) {
+    const id = pathname.replace(/^\/go\//, '').replace(/\/$/, '');
+    if (redirects[id]) {
+      res.writeHead(302, {
+        'Location': redirects[id],
+        'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet'
+      });
+      return res.end();
+    }
+  }
   if (pathname === '/' || pathname === '') pathname = '/index.html';
   let file = path.resolve(root, '.' + pathname);
   if (fs.existsSync(file) && fs.statSync(file).isDirectory()) {
