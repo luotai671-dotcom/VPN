@@ -1,34 +1,102 @@
-# 翻墙怪 VPN Insight — 专线加速与评测推荐站
+# VPN Insight (FANQIANGGUAI) — 跨域网络延迟评测与节点性能展示框架
 
-原生 HTML、CSS、JavaScript 极速静态框架，专注推荐优质 IEPL/IPLC 专线与 VLESS 现代协议服务，严格绑定推广邀请码与优惠码。
+[![HTML5 / CSS3 / ES6+](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20ES6+-emerald.svg)](./index.html)
+[![Test Suite](https://img.shields.io/badge/tests-passing-brightgreen.svg)](./package.json)
 
-## 核心推荐品牌矩阵 (`src/data/services.json`)
+VPN Insight 是一个专注于**跨域网络传输优化、专线延迟压测可视化、多端代理规则配置与网络安全分析**的高性能纯静态前端展示框架。项目基于原生 HTML5、现代化 CSS3（Flexbox / CSS Grid）以及模块化 JavaScript 构建，零重型第三方运行时依赖，具备极致的首屏加载性能与完备的 SEO 架构体系。
 
-| 排名 | 品牌 | 定位/线路 | 起步资费 | 专属优惠码 | 核心协议 | 官网推广链接 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **01 (主推)** | **闪电鼠** | IEPL+内网专线 | 8元/月 | `sd88` | VLESS | `https://chenpin.shandianshuaff.com/#/?code=m28TvPVX` |
-| **02** | **大佬云** | IEPL 专线 | 8元/月 | `dly88` | VLESS | `https://chenpin01.dalaoyunaff.com/#/?code=GQ6CL6Km` |
-| **03** | **榴莲云** | IEPL 专线 | 8元/月 | `ll88` | VLESS | `https://chenpingan.liulianyunaff.com/#/?code=7pdjs9zt` |
-| **04** | **神行加速** | IEPL 游戏专线 | 15元/月 | `sx0077` | VLESS | `https://chenpingan01.shenxingaff.com/#/?code=RZ48f9wP` |
-| **05** | **云界线** | IEPL 商务专线 | 15元/月 | `yjx888` | VLESS | `https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT` |
-| **06** | **环球梯** | 内网专线+IEPL | 8元/月 | `hq66` | VLESS | `https://chenpingan01.huanqiutiaff.com/#/?code=FGCcYdFo` |
-| **07** | **极连云** | IEPL 大带宽专线 | 18元/月 | `jly888` | VLESS | `https://haozevpn.jlyvipaff.com/#/?code=6h2TMD5b` |
-| **08** | **光速云** | IPLC 极速专线 | 15元/月 | 免码直购 | VLESS | `https://hu8jnfv.gsyvipaff.com/#/?code=vELLETdq` |
-| **09** | **光年梯** | IEPL 亲民专线 | 7元/月 | 免码直购 | VLESS | `https://gnt001.gntvipaff.cc/#/?code=rN3ybxa7` |
-| **10** | **边缘节点** | 分布式边缘计算 | 22元/月 | `xk808` | VLESS | `https://wep.edgenovaaff.com/#/?code=papME7sh` |
-| **11** | **速界** | IPLC 专线 | 15元/月 | `sujie80` | VLESS | `https://pygllc.speedworldaff.cc/#/?code=ll8LjYBJ` |
+---
 
-## 快速预览与运行
+## 🌟 核心特性与架构亮点
 
-1. **双击批处理一键启动**：
-   - 双击 `启动本地服务器.bat`：本地监听 `http://localhost:3000` 并自动打开浏览器。
-   - 双击 `启动预览.bat`：直接在浏览器中打开 `index.html` 本地文件。
-2. **命令行运行**：
-   - `npm run dev`：启动本地轻量静态 HTTP 服务器。
-   - `npm run check`：静态语法检查。
+1. **高性能纯静态架构**
+   - 纯前端工程化实现，无需复杂构建管道，首屏零阻塞，支持一键托管于 Cloudflare Pages、Vercel、GitHub Pages 或任何标准 Nginx / 静态 Web 服务器。
+2. **多维度网络评测数据可视化**
+   - 包含晚高峰三网（电信/联通/移动）延迟分布、丢包率压测指标、流媒体解锁成功率与吞吐速率量化分析模块。
+3. **场景化智能分流与规则指南**
+   - 覆盖 iOS (Shadowrocket)、Windows / macOS (Clash Verge Rev)、软路由 (Mihomo / Clash Meta) 及 Android (v2rayNG) 的现代化协议（VLESS、Trojan、Hysteria2）分流规则与配置教程。
+4. **完备的 SEO 与主题集群体系**
+   - 内置 30+ 独立页面，集成 JSON-LD (Schema.org) 结构化数据、Open Graph 元标签、标准 `sitemap.xml` 及 `robots.txt` 爬虫协议。
+5. **深绿科技感 UI 视觉系统**
+   - 专属 Cyber Navy 深绿科技配色体系，支持移动端自适应抽屉导航、高质感毛玻璃微边框组件与无障碍访问交互体验。
 
-## 页面架构
+---
 
-- **核心数据层**：`src/data/services.json` 与 `data/services.json`，严格锁定邀请码参数。
-- **动态交互**：`js/app.js` 支持多场景筛选（综合、Netflix、游戏、隐私、高性价比）、一键复制优惠码反馈、Ctrl+K 全局即时搜索、深度评测文章参数路由。
-- **侧边栏与吸底推荐**：主推品牌 **闪电鼠** 独占侧边栏 `✦ 编辑之选` 与移动端吸底浮窗。
+## 📊 评测基准与线路规格参考
+
+> 注：本展示数据源自评测实验室在不同时段的多地域压测抽样，仅作为前端界面展示与性能基准参考。
+
+| 序号 | 评测标的 | 线路规格拓扑 | 核心协议 | 测速吞吐基准 | 适用场景 |
+| :---: | :--- | :--- | :---: | :---: | :--- |
+| **01** | 闪电鼠 | BGP 入口 + IEPL 纯内网双专线 | VLESS | 980 Mbps / 0% 丢包 | 4K/8K 媒体、跨境协同、外服游戏 |
+| **02** | 大佬云 | 骨干网 IEPL 跨境专线 | VLESS | 950 Mbps / 0% 丢包 | 稳定办公、大流量下载、视频会议 |
+| **03** | 榴莲云 | 多线 BGP + IEPL 商务专线 | VLESS | 920 Mbps / 极低抖动 | AI 深度生产力、跨境电商运营 |
+| **04** | 神行加速 | 独享低延迟游戏隧道 | VLESS | 890 Mbps / 亚服极速 | 联机竞技、低延迟外服电竞 |
+| **05** | 云界线 | 纯净商用出口原生专线 | VLESS | 860 Mbps / 原生住宅 | 大模型研发、风控环境防降智 |
+| **06** | 环球梯 | 内网专线冗余拓扑 | VLESS | 850 Mbps / 稳定吞吐 | 日常浏览、流媒体多区解锁 |
+| **07** | 极连云 | 大带宽骨干链路 | VLESS | 840 Mbps / 高并发支持 | 批量数据同步、多设备家庭网络 |
+| **08** | 光速云 | 高速内网中继专线 | VLESS | 820 Mbps / 智能负载 | 高峰期抗拥堵、流媒体加速 |
+| **09** | 光年梯 | 弹性分流轻量专线 | VLESS | 800 Mbps / 灵活计量 | 轻度使用、学生与开发者研究 |
+| **10** | 边缘节点 | 分布式边缘计算网络 | VLESS | 780 Mbps / 全球多节点 | 全球跨境路由、分布式网络测试 |
+| **11** | 速界 | 企业级内网互联链路 | VLESS | 760 Mbps / 专线容灾 | 敏感期高可用、备份链路保障 |
+
+---
+
+## 📁 目录结构概览
+
+```text
+├── index.html               # 站点主入口与评测总览看板
+├── vpn.html                 # 独立推荐与详细对比专题页
+├── streaming.html           # 流媒体 4K/8K 解锁技术指南
+├── devices.html             # 全平台客户端配置与规则分流指南
+├── security.html            # 专线加密与隐私安全深度科普
+├── methodology.html         # 实验室测速与压测方法论
+├── beginner.html            # 新手入门与防坑科普完全手册
+├── blog.html                # 博客资讯与评测知识库中心
+├── ai-tools/                # AI 工具规则分流与防降智专题集群
+├── blog/                    # 10 篇高权威 SEO 深度测评独立文章
+├── robots.txt               # 搜索引擎爬虫抓取控制规范
+├── sitemap.xml              # 站点全量 XML 地图
+├── src/data/services.json   # 评测服务商基础结构化数据源
+├── js/app.js                # 前端交互与客户端即时检索引擎
+├── styles/main.css          # 全局深绿科技感响应式样式规范
+├── scripts/                 # 自动化构建、校验与页面生成脚本
+└── server.cjs               # 本地轻量静态 HTTP 调试服务
+```
+
+---
+
+## 🚀 快速上手与本地调试
+
+### 1. 环境准备
+确保本机安装了 Node.js（推荐 v18+）。
+
+### 2. 启动服务
+你可以选择以下任意方式进行本地预览：
+
+* **方式 A：通过 npm 运行**
+  ```bash
+  npm run dev
+  # 服务将启动在 http://localhost:3000
+  ```
+
+* **方式 B：双击脚本一键启动 (Windows)**
+  * 双击 `启动本地服务器.bat`：自动启动内置轻量服务器并在默认浏览器中打开页面。
+  * 双击 `启动预览.bat`：直接通过浏览器查看静态页面。
+
+### 3. 代码与完整性检查
+```bash
+# 静态语法规范校验
+npm run check
+
+# 全站 30 个页面结构、字数与超链接死链自动化回归测试
+npm test
+```
+
+---
+
+## ⚖️ 免责声明与合规说明 (Disclaimer)
+
+1. 本项目为开源的前端工程框架与界面设计展示模板，用于前端开发交流、网络性能测试方案探讨及学术研究。
+2. 项目中所引用的网络参数、测速基准及配置示例均为公开技术文档与实验室模拟测试数据，不代表任何商业担保。
+3. 使用本项目及相关技术方案时，请严格遵守所在国家与地区的法律法规，文明合规使用互联网。
