@@ -1,0 +1,13 @@
+# robots.txt for https://fanqiangguai.blog
+# FANQIANGGUAI - VPN INSIGHT
+
+User-agent: *
+Allow: /
+
+# Disallow internal directories
+Disallow: /data/
+Disallow: /scripts/
+Disallow: /artifacts/
+
+# Sitemap location
+Sitemap: https://fanqiangguai.blog/sitemap.xml

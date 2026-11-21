@@ -1,0 +1,185 @@
+const fs = require('fs');
+
+// Design 1: "Cyber Beast Wall-Breaker" (极客破壁神兽)
+// - Transparent background (no heavy dark box)
+// - Elegant tech shield & geometric horns
+// - High-contrast neon eyes + piercing lightning bolt
+// - Sharp vector paths that remain crystal clear at 16x16
+const svgDesign1 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="fqg-g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E6B4B"/>
+      <stop offset="100%" stop-color="#0e3d2a"/>
+    </linearGradient>
+    <linearGradient id="fqg-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="fqg-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 灵动破壁怪兽双角 (极客天线) -->
+  <path d="M19 17 L11 5 C9.8 3.2 12.2 1.6 14 3.2 L23 12 Z" fill="url(#fqg-glow)"/>
+  <path d="M45 17 L53 5 C54.2 3.2 51.8 1.6 50 3.2 L41 12 Z" fill="url(#fqg-glow)"/>
+
+  <!-- 核心机能头部护盾 (精细倒角几何) -->
+  <path d="M14 16 C14 13.5 16 11.5 18.5 11.5 H45.5 C48 11.5 50 13.5 50 16 V35 C50 46.5 41 55.5 32 58.5 C23 55.5 14 46.5 14 35 Z" 
+        fill="url(#fqg-g1)" stroke="#26704f" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- 左右防火墙垛阻断纹理 -->
+  <path d="M18 29 H25 M39 29 H46" stroke="#2e855c" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M17 37 H23 M41 37 H47" stroke="#226645" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 极客微光双眼 (高辨识度水平锐利视镜) -->
+  <rect x="20" y="19" width="8" height="5.5" rx="2" fill="url(#fqg-accent)"/>
+  <rect x="36" y="19" width="8" height="5.5" rx="2" fill="url(#fqg-accent)"/>
+  <circle cx="24" cy="21.75" r="1.3" fill="#0e3d2a"/>
+  <circle cx="40" cy="21.75" r="1.3" fill="#0e3d2a"/>
+
+  <!-- 破壁穿透闪电核心 (⚡ 突破防火墙) -->
+  <polygon points="34.5,23 23,39 31.5,39 27,53.5 41.5,36 33.5,36" 
+           fill="url(#fqg-glow)" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>`;
+
+// Design 2: "Cyber Shield Wall-Breaker" (极简现代机能盾标)
+// - A streamlined pentagon shield with stylized monster ears/horns forming the upper chamfer
+// - Clean, iconic, like Brave / Tor / Bitwarden
+const svgDesign2 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="s2-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b5a3e"/>
+      <stop offset="100%" stop-color="#0f3826"/>
+    </linearGradient>
+    <linearGradient id="s2-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 外围极客怪兽护盾 (自带双尖角轮廓) -->
+  <path d="M32 4 L41 14 H51 C53 14 54.5 15.5 54 17.5 L49 40 C46.5 50.5 38.5 58 32 60 C25.5 58 17.5 50.5 15 40 L10 17.5 C9.5 15.5 11 14 13 14 H23 Z" 
+        fill="url(#s2-base)" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- 极客数码微光眼 -->
+  <circle cx="25" cy="24" r="3.5" fill="#34d399"/>
+  <circle cx="39" cy="24" r="3.5" fill="#34d399"/>
+  <circle cx="25" cy="24" r="1.5" fill="#0f3826"/>
+  <circle cx="39" cy="24" r="1.5" fill="#0f3826"/>
+
+  <!-- 破壁穿透闪电 (突破中央) -->
+  <polygon points="34,29 24,42 32,42 28,54 41,38 33,38" 
+           fill="#34d399" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>`;
+
+// Design 3: "Minimalist Cyber Monster Mark" (超极简破壁怪兽极客符号)
+// - Clean geometry: Hexagonal head + twin antennas + cyber visor + piercing bolt
+// - Ultra-sharp contrast, 0 clutter, top-tier aesthetic
+const svgDesign3 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="s3-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#165b3d"/>
+      <stop offset="100%" stop-color="#0d3523"/>
+    </linearGradient>
+    <linearGradient id="s3-mint" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 几何怪兽触角 -->
+  <path d="M21 15 L14 4 M43 15 L50 4" stroke="#10b981" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="14" cy="4" r="3" fill="#34d399"/>
+  <circle cx="50" cy="4" r="3" fill="#34d399"/>
+
+  <!-- 极客机能面罩 (六边形几何盾) -->
+  <path d="M15 17 H49 L53 36 L32 58 L11 36 Z" 
+        fill="url(#s3-bg)" stroke="#10b981" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- 极客微光双眼 -->
+  <rect x="21" y="24" width="7" height="4.5" rx="1.5" fill="#34d399"/>
+  <rect x="36" y="24" width="7" height="4.5" rx="1.5" fill="#34d399"/>
+
+  <!-- 破壁穿透闪电 -->
+  <polygon points="34,31 25,43 32,43 28,53 40,39 33,39" 
+           fill="url(#s3-mint)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round"/>
+</svg>`;
+
+console.log('Design 1 len:', svgDesign1.length);
+console.log('Design 2 len:', svgDesign2.length);
+console.log('Design 3 len:', svgDesign3.length);
+
+fs.writeFileSync('scripts/preview-designs.html', `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Logo Designs Preview</title>
+<style>
+  body { font-family: sans-serif; background: #f0f2f0; padding: 40px; }
+  .grid { display: flex; gap: 40px; flex-wrap: wrap; }
+  .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); width: 280px; }
+  .card h3 { margin: 0 0 16px; color: #17323a; }
+  .preview-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; padding: 12px; background: #fbfcf9; border-radius: 8px; border: 1px solid #dfe7dc; }
+  .preview-dark { background: #112f39; border-color: #1a424f; }
+  .preview-dark span { color: white; }
+  .size-16 { width: 16px; height: 16px; }
+  .size-32 { width: 32px; height: 32px; }
+  .size-38 { width: 38px; height: 38px; }
+  .size-64 { width: 64px; height: 64px; }
+</style>
+</head>
+<body>
+  <h2>「翻墙怪」Logo 备选设计方案</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>方案一：机能破壁兽 (精雕几何护盾)</h3>
+      <div class="preview-row">
+        <div class="size-38">${svgDesign1}</div>
+        <strong>翻墙怪<br><small style="color:#26704f;font-size:9px">FANQIANGGUAI</small></strong>
+      </div>
+      <div class="preview-row preview-dark">
+        <div class="size-38">${svgDesign1}</div>
+        <span>翻墙怪</span>
+      </div>
+      <div class="preview-row">
+        <div class="size-16">${svgDesign1}</div> 16x16 标签页
+        <div class="size-32">${svgDesign1}</div> 32x32
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>方案二：一体化破壁盾标 (一体角盾)</h3>
+      <div class="preview-row">
+        <div class="size-38">${svgDesign2}</div>
+        <strong>翻墙怪<br><small style="color:#26704f;font-size:9px">FANQIANGGUAI</small></strong>
+      </div>
+      <div class="preview-row preview-dark">
+        <div class="size-38">${svgDesign2}</div>
+        <span>翻墙怪</span>
+      </div>
+      <div class="preview-row">
+        <div class="size-16">${svgDesign2}</div> 16x16
+        <div class="size-32">${svgDesign2}</div> 32x32
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>方案三：微标极简六边形怪兽</h3>
+      <div class="preview-row">
+        <div class="size-38">${svgDesign3}</div>
+        <strong>翻墙怪<br><small style="color:#26704f;font-size:9px">FANQIANGGUAI</small></strong>
+      </div>
+      <div class="preview-row preview-dark">
+        <div class="size-38">${svgDesign3}</div>
+        <span>翻墙怪</span>
+      </div>
+      <div class="preview-row">
+        <div class="size-16">${svgDesign3}</div> 16x16
+        <div class="size-32">${svgDesign3}</div> 32x32
+      </div>
+    </div>
+  </div>
+</body>
+</html>`);

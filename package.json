@@ -1,0 +1,12 @@
+{
+  "name": "vpn-insight",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Original Chinese VPN review static site framework",
+  "scripts": {
+    "dev": "node server.cjs",
+    "start": "node server.cjs",
+    "check": "node --check js/app.js && node --check server.cjs",
+    "test": "node scripts/verify-reviews.cjs && node scripts/verify-all-pages.cjs"
+  }
+}
