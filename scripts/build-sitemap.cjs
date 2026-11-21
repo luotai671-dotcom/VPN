@@ -34,7 +34,7 @@ if (!sitemapHtml.includes('AI 工具与专属分流独立专题')) {
   );
 }
 
-if (!sitemapHtml.includes('博客资讯高热搜长尾文章专题')) {
+if (!sitemapHtml.includes('博客资讯高热搜长尾文章专题') && !sitemapHtml.includes('博客资讯精选专题与进阶指南')) {
   sitemapHtml = sitemapHtml.replace(
     '<h2>11 款核心服务商深度评测独立长文</h2>',
     blogClusterSitemapSection + '\n  <h2>11 款核心服务商深度评测独立长文</h2>'
@@ -43,7 +43,7 @@ if (!sitemapHtml.includes('博客资讯高热搜长尾文章专题')) {
   console.log('✓ sitemap.html 成功追加 10 篇博客长尾专题导航链接');
 } else {
   // 如果已存在，替换为最新的
-  const clusterRegex = /<h2>博客资讯(?:高热搜长尾文章专题[\s\S]*?|精选专题与进阶指南[\s\S]*?)<\/div>/;
+  const clusterRegex = /<h2>博客资讯(?:高热搜长尾文章专题[\s\S]*?|精选专题与进阶指南[\s\S]*?)<\/div>/g;
   sitemapHtml = sitemapHtml.replace(clusterRegex, blogClusterSitemapSection.trim());
   fs.writeFileSync(path.join(rootDir, 'sitemap.html'), sitemapHtml, 'utf8');
   console.log('✓ sitemap.html 已同步更新博客长尾专题导航链接');
@@ -134,3 +134,11 @@ Sitemap: ${domain}/sitemap.xml
 `;
 fs.writeFileSync(path.join(rootDir, 'robots.txt'), robotsTxt, 'utf8');
 console.log('✓ robots.txt 生成成功，已指向 https://fanqiangguai.blog/sitemap.xml！');
+
+// 4. 同步 IndexNow 验证密钥文件
+const indexNowKey = 'cb6f8a8025ef67173947437dfa1204ff';
+fs.writeFileSync(path.join(rootDir, `${indexNowKey}.txt`), `${indexNowKey}\n`, 'utf8');
+const publicDir = path.join(rootDir, 'public');
+if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+fs.writeFileSync(path.join(publicDir, `${indexNowKey}.txt`), `${indexNowKey}\n`, 'utf8');
+console.log(`✓ IndexNow 验证密钥文件 [${indexNowKey}.txt] 已同步至产物根目录与 public/ 目录！`);

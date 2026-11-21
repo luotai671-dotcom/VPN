@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "node server.cjs",
     "start": "node server.cjs",
+    "build": "node scripts/build-sitemap.cjs && node scripts/generate-go-pages.cjs",
+    "indexnow": "node scripts/push-indexnow.cjs",
     "check": "node --check js/app.js && node --check server.cjs",
     "test": "node scripts/verify-reviews.cjs && node scripts/verify-all-pages.cjs && node scripts/test-redirects.cjs"
   }

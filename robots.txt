@@ -4,7 +4,7 @@
 User-agent: *
 Allow: /
 
-# Disallow internal directories
+# Disallow sensitive or temporary paths
 Disallow: /data/
 Disallow: /scripts/
 Disallow: /artifacts/
