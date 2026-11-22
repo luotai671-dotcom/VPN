@@ -4,7 +4,13 @@ const path = require('path');
 const HOST = 'fanqiangguai.blog';
 const KEY = 'cb6f8a8025ef67173947437dfa1204ff';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
+
+// IndexNow 官方与主要搜索引擎端点列表
+const ENDPOINTS = [
+  { name: 'IndexNow 官方中心网关', url: 'https://api.indexnow.org/indexnow' },
+  { name: 'Microsoft Bing 专有网关', url: 'https://www.bing.com/indexnow' },
+  { name: 'Yandex 专有网关', url: 'https://yandex.com/indexnow' }
+];
 
 console.log('=== 开始执行 IndexNow 全量 URL 自动推送 ===');
 
@@ -42,33 +48,47 @@ const payload = {
   urlList: urlList
 };
 
-async function submitIndexNow() {
+async function submitToEndpoint(endpoint) {
   try {
-    const response = await fetch(INDEXNOW_ENDPOINT, {
+    const response = await fetch(endpoint.url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'User-Agent': 'Fanqiangguai-IndexNow-Pusher/1.0'
+        'User-Agent': 'Mozilla/5.0 (compatible; Fanqiangguai-IndexNow-Pusher/1.0)'
       },
       body: JSON.stringify(payload)
     });
 
-    console.log(`\nIndexNow 响应状态码: ${response.status} (${response.statusText || 'OK'})`);
+    const status = response.status;
+    const text = await response.text();
 
-    if (response.status === 200) {
-      console.log('🎉 提交成功 (HTTP 200): URLs submitted successfully!');
-    } else if (response.status === 202) {
-      console.log('🎉 接收成功 (HTTP 202): URLs received. IndexNow key validation pending or accepted.');
+    if (status === 200 || status === 202) {
+      console.log(`  ✓ [${endpoint.name}] 推送成功: HTTP ${status} (${response.statusText || 'Accepted'})`);
+      return true;
     } else {
-      const text = await response.text();
-      console.warn(`⚠️ 响应内容: ${text || '(空)'}`);
+      console.warn(`  ⚠️ [${endpoint.name}] 响应状态: HTTP ${status} | 内容: ${text || '(空)'}`);
+      return false;
     }
-
-    return response.status;
   } catch (err) {
-    console.error('❌ 发送请求失败:', err.message);
-    throw err;
+    console.error(`  ❌ [${endpoint.name}] 发送异常: ${err.message}`);
+    return false;
   }
 }
 
-submitIndexNow().catch(() => process.exit(1));
+async function main() {
+  let anySuccess = false;
+  for (const ep of ENDPOINTS) {
+    const ok = await submitToEndpoint(ep);
+    if (ok) anySuccess = true;
+  }
+  
+  if (anySuccess) {
+    console.log('\n🎉 IndexNow 多网关广播完成，至少一个搜索引擎已成功接收并进入索引抓取队列！');
+  } else {
+    console.warn('\n⚠️ 所有 IndexNow 端点暂时未能成功接收，请检查域名部署或待 GitHub Pages / Cloudflare 同步后重试。');
+  }
+}
+
+main().catch(err => {
+  console.error('推送异常:', err);
+});

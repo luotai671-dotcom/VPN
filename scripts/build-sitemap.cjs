@@ -135,10 +135,19 @@ Sitemap: ${domain}/sitemap.xml
 fs.writeFileSync(path.join(rootDir, 'robots.txt'), robotsTxt, 'utf8');
 console.log('✓ robots.txt 生成成功，已指向 https://fanqiangguai.blog/sitemap.xml！');
 
-// 4. 同步 IndexNow 验证密钥文件
+// 4. 同步 IndexNow 验证密钥文件与 Bing 站长验证文件
 const indexNowKey = 'cb6f8a8025ef67173947437dfa1204ff';
-fs.writeFileSync(path.join(rootDir, `${indexNowKey}.txt`), `${indexNowKey}\n`, 'utf8');
+fs.writeFileSync(path.join(rootDir, `${indexNowKey}.txt`), indexNowKey, 'utf8');
 const publicDir = path.join(rootDir, 'public');
 if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
-fs.writeFileSync(path.join(publicDir, `${indexNowKey}.txt`), `${indexNowKey}\n`, 'utf8');
+fs.writeFileSync(path.join(publicDir, `${indexNowKey}.txt`), indexNowKey, 'utf8');
 console.log(`✓ IndexNow 验证密钥文件 [${indexNowKey}.txt] 已同步至产物根目录与 public/ 目录！`);
+
+const bingSiteAuthXml = `<?xml version="1.0"?>
+<users>
+\t<user>${indexNowKey}</user>
+</users>
+`;
+fs.writeFileSync(path.join(rootDir, 'BingSiteAuth.xml'), bingSiteAuthXml, 'utf8');
+fs.writeFileSync(path.join(publicDir, 'BingSiteAuth.xml'), bingSiteAuthXml, 'utf8');
+console.log('✓ Bing 站长验证文件 [BingSiteAuth.xml] 已同步至产物根目录与 public/ 目录！');
